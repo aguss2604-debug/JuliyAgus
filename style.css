@@ -97,3 +97,47 @@ body {
     z-index: 999;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
     transition: all 0.3s
+
+.historia{
+    min-height:100vh;
+    background:#f8f4ef;
+    padding:120px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.historia-contenedor{
+    max-width:900px;
+    width:100%;
+    text-align:center;
+}
+
+.historia h2{
+    font-family:'Parisienne', cursive;
+    font-size:70px;
+    color:#96794c;
+    margin-bottom:20px;
+}
+
+.linea{
+    width:120px;
+    height:2px;
+    background:#d4b977;
+    margin:0 auto 60px auto;
+}
+
+.momento{
+    margin-bottom:60px;
+}
+
+.momento h3{
+    font-size:32px;
+    color:#96794c;
+    margin-bottom:15px;
+}
+
+.momento p{
+    font-size:24px;
+    line-height:1.6;
+    color:#4a4a4a;
+}
