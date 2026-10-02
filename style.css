@@ -97,7 +97,7 @@ body {
     z-index: 999;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
     transition: all 0.3s
-
+}
 .historia{
     min-height:100vh;
     background:#f8f4ef;
