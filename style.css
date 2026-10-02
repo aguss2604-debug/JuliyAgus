@@ -78,3 +78,15 @@
 .body{
     font-family:'Cormorant Garamond', serif;
 }
+.btn-musica{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:#e6d78b;
+    font-size:24px;
+    cursor:pointer;
+}
