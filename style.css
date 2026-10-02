@@ -4,20 +4,33 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dorado: #e6d78b;
+    --dorado-linea: #d4b977;
+    --dorado-oscuro: #96794c;
+    --crema: #f8f4ef;
+}
+
 body {
     font-family: 'Cinzel', serif;
     background: #000;
 }
 
+/* ========================= */
+/*          PORTADA          */
+/* ========================= */
+
 .hero {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100svh; /* en celular no se corta con la barra del navegador */
     overflow: hidden;
 }
 
 .background {
     position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -35,7 +48,7 @@ body {
     left: 10%;
     width: 80%;
     height: 84%;
-    border: 1px solid #e6d78b;
+    border: 1px solid var(--dorado);
     z-index: 2;
 }
 
@@ -44,8 +57,9 @@ body {
     top: 12%;
     width: 100%;
     text-align: center;
-    color: #e6d78b;
-    font-size: 32px;
+    color: var(--dorado);
+    font-size: clamp(22px, 4.5vw, 32px);
+    letter-spacing: 4px;
     z-index: 3;
 }
 
@@ -54,236 +68,259 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
     text-align: center;
     z-index: 3;
 }
 
 .contenido h1 {
-    color: #e6d78b;
-    font-size: 90px;
-    line-height: 0.9;
+    color: var(--dorado);
+    font-size: clamp(44px, 12vw, 90px);
+    line-height: 0.95;
     font-weight: 600;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .5);
 }
 
 .contenido p {
     color: white;
     margin-top: 20px;
-    font-size: 24px;
+    font-size: clamp(16px, 3.5vw, 24px);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .6);
 }
 
 .nombres {
     position: absolute;
-    bottom: 10%;
+    bottom: 12%;
     width: 100%;
     text-align: center;
-    color: #e6d78b;
-    font-size: 50px;
+    color: var(--dorado);
+    font-size: clamp(38px, 8vw, 56px);
     font-family: 'Parisienne', cursive;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
     z-index: 3;
 }
 
+/* ========================= */
+/*       BOTON MUSICA        */
+/* ========================= */
+
 .btn-musica {
     position: fixed;
-    right: 25px;
-    bottom: 25px;
-    width: 60px;
-    height: 60px;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     border: none;
-    background: #e6d78b;
+    background: var(--dorado);
     color: #000;
     font-size: 24px;
     cursor: pointer;
     z-index: 999;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
-    transition: all 0.3s;
-}
-.historia{
-    min-height:100vh;
-    background:#f8f4ef;
-    padding:120px 20px;
-    display:flex;
-    justify-content:center;
+    transition: transform .3s;
 }
 
-.historia-contenedor{
-    max-width:900px;
-    width:100%;
-    text-align:center;
+.btn-musica:hover {
+    transform: scale(1.08);
 }
 
-.historia h2{
-    font-family:'Parisienne', cursive;
-    font-size:80px;
-    color:#96794c;
-    margin-bottom:20px;
+/* ========================= */
+/*         HISTORIA          */
+/* ========================= */
+
+.historia {
+    min-height: 100vh;
+    background: var(--crema);
+    padding: clamp(70px, 12vw, 120px) 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.linea{
-    width:150px;
-    height:2px;
-    background:#d4b977;
-    margin:0 auto 60px auto;
+.historia-contenedor {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
 }
 
-.foto-historia{
-    width:350px;
-    height:350px;
-    object-fit:cover;
-    border-radius:20px;
-    border:4px solid #d4b977;
-    margin-bottom:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,.20);
-    transition:all .3s ease;
+.historia h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(52px, 11vw, 80px);
+    font-weight: 400;
+    color: var(--dorado-oscuro);
+    margin-bottom: 20px;
 }
 
-.foto-historia:hover{
-    transform:scale(1.03);
+.linea {
+    width: 150px;
+    height: 2px;
+    background: var(--dorado-linea);
+    margin: 0 auto 60px auto;
 }
 
-.momento{
-    margin-bottom:100px;
+.foto-historia {
+    width: min(350px, 100%);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid var(--dorado-linea);
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .20);
+    transition: transform .3s ease;
 }
 
-.momento h3{
-    font-size:32px;
-    color:#96794c;
-    margin-bottom:15px;
+.foto-historia:hover {
+    transform: scale(1.03);
 }
 
-.momento p{
-    font-size:22px;
-    line-height:1.8;
-    color:#4a4a4a;
+.momento {
+    margin-bottom: clamp(60px, 10vw, 100px);
 }
+
+.momento h3 {
+    font-size: clamp(22px, 5vw, 32px);
+    color: var(--dorado-oscuro);
+    margin-bottom: 15px;
+}
+
+.momento p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: clamp(17px, 4vw, 22px);
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
 /* ========================= */
 /*      SECCION EVENTO       */
 /* ========================= */
 
-.evento{
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
+.evento {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.fondo-evento{
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
+.fondo-evento {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.overlay-evento{
-    position:absolute;
-    inset:0;
-
-    background:rgba(0,0,0,.55);
+.overlay-evento {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
 }
 
-.evento-contenedor{
-    position:relative;
-    z-index:3;
-
-    text-align:center;
-
-    max-width:900px;
-    width:100%;
-
-    padding:40px;
+.evento-contenedor {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 60px 24px;
 }
 
-.evento h2{
-    font-family:'Parisienne', cursive;
-    font-size:90px;
-    color:#e6d78b;
-
-    margin-bottom:20px;
+.evento h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(52px, 12vw, 90px);
+    font-weight: 400;
+    color: var(--dorado);
+    margin-bottom: 20px;
 }
 
-.dato{
-    margin:30px 0;
+.dato {
+    margin: 30px 0;
 }
 
-.dato span{
-    display:block;
-    font-size:40px;
-
-    margin-bottom:10px;
+.dato span {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-.dato h3{
-    color:white;
-
-    font-size:32px;
-
-    font-weight:400;
+.dato h3 {
+    color: white;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 400;
 }
 
-.boton-evento{
-    display:inline-block;
-
-    margin:15px 10px;
-
-    padding:15px 35px;
-
-    background:#e6d78b;
-
-    color:#000;
-
-    text-decoration:none;
-
-    border-radius:40px;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-    transition:.3s;
+.boton-evento {
+    display: inline-block;
+    margin: 15px 10px;
+    padding: 15px 35px;
+    background: var(--dorado);
+    color: #000;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: bold;
+    transition: transform .3s;
 }
 
-.boton-evento:hover{
-    transform:scale(1.05);
+.boton-evento:hover {
+    transform: scale(1.05);
 }
 
-.whatsapp{
-    background:#25D366;
-    color:white;
+/* Foco visible para quien navega con teclado */
+.boton-evento:focus-visible,
+.btn-musica:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
 }
 
-.contador{
-    margin-top:60px;
+.contador {
+    margin-top: 60px;
 }
 
-.contador h3{
-    color:#e6d78b;
-
-    margin-bottom:15px;
+.contador h3 {
+    color: var(--dorado);
+    margin-bottom: 15px;
 }
 
-.contador p{
-    color:white;
-
-    margin-top:10px;
+#dias-restantes {
+    font-size: clamp(60px, 16vw, 80px);
+    font-weight: bold;
+    color: var(--dorado);
 }
 
-#dias-restantes{
-    font-size:80px;
-
-    font-weight:bold;
-
-    color:#e6d78b;
+.texto-contador {
+    color: white;
+    margin-top: 15px;
+    font-size: clamp(18px, 4.5vw, 28px);
+    font-weight: 400;
 }
-.texto-contador{
-    color:white;
-    margin-top:15px;
-    font-size:28px;
-    font-weight:400;
+
+/* ========================= */
+/*     CELULARES CHICOS      */
+/* ========================= */
+
+@media (max-width: 480px) {
+    .marco {
+        top: 5%;
+        left: 6%;
+        width: 88%;
+        height: 90%;
+    }
+
+    .boton-evento {
+        display: block;
+        max-width: 280px;
+        margin: 15px auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
 }
