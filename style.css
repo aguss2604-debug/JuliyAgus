@@ -101,33 +101,33 @@ body {
 .historia{
     min-height:100vh;
     background:#f8f4ef;
-    padding:120px 20px;
+    padding:120px 40px;
     display:flex;
+    align-items:center;
     justify-content:center;
 }
 
 .historia-contenedor{
     max-width:900px;
-    width:100%;
     text-align:center;
 }
 
 .historia h2{
     font-family:'Parisienne', cursive;
-    font-size:70px;
+    font-size:80px;
     color:#96794c;
-    margin-bottom:20px;
+    margin-bottom:30px;
 }
 
 .linea{
-    width:120px;
+    width:150px;
     height:2px;
     background:#d4b977;
     margin:0 auto 60px auto;
 }
 
 .momento{
-    margin-bottom:60px;
+    margin-bottom:50px;
 }
 
 .momento h3{
@@ -137,7 +137,7 @@ body {
 }
 
 .momento p{
-    font-size:24px;
-    line-height:1.6;
+    font-size:22px;
     color:#4a4a4a;
+    line-height:1.8;
 }
