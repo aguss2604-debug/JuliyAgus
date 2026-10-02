@@ -188,20 +188,12 @@ body {
     background:rgba(0,0,0,.55);
 }
 
-.evento-contenedor{
-    position:relative;
-    z-index:3;
-
-    text-align:center;
-
-    max-width:900px;
-    width:100%;
-
-    padding:40px;
-
-    transform:translateY(120px);
+.texto-contador{
+    color:white;
+    margin-top:15px;
+    font-size:28px;
+    font-weight:400;
 }
-
 .evento h2{
     font-family:'Parisienne', cursive;
     font-size:90px;
