@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Juli & Agus</title>
+    <title>Juli & Agus · 3 de abril de 2027</title>
+    <meta name="description" content="¡Nos casamos! Te esperamos el 3 de abril de 2027 a las 18:30 hs en Quinta Las Rosas.">
+
+    <!-- Vista previa al compartir por WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Juli & Agus · ¡Nos casamos!">
+    <meta property="og:description" content="Te esperamos el 3 de abril de 2027 a las 18:30 hs.">
+    <meta property="og:image" content="https://aguss2604-debug.github.io/JuliyAgus/Portada.jpg">
+
+    <!-- Fuentes (corregido: el link anterior estaba cortado y mal escrito) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Fuentes -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstaticts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Parisienne&display=>
 </head>
 
 <body>
 
-    <!-- AUDIO -->
-    <audio id="musica" loop>
-        musica.mp3
-    </audio>
+    <!-- AUDIO (necesita el archivo musica.mp3 subido al repo) -->
+    <audio id="musica" src="musica.mp3" loop preload="none"></audio>
 
     <!-- BOTON MUSICA -->
-    <button class="btn-musica"
-        onclick="document.getElementById('musica').play()">
+    <button class="btn-musica" id="btn-musica" type="button" aria-label="Reproducir música">
         🎵
     </button>
 
@@ -48,8 +53,9 @@
                 CASAMOS!
             </h1>
 
+            <!-- Reemplazá por el texto que prefieras -->
             <p>
-                Calle Cualquiera 123, Cualquier Lugar
+                Quinta Las Rosas
             </p>
 
         </div>
@@ -59,146 +65,156 @@
         </div>
 
     </section>
-<section class="historia">
 
-    <div class="historia-contenedor">
+    <!-- HISTORIA -->
+    <section class="historia">
 
-        <h2>Nuestra Historia</h2>
+        <div class="historia-contenedor">
 
-        <div class="linea"></div>
+            <h2>Nuestra Historia</h2>
 
-        <div class="momento">
+            <div class="linea"></div>
 
-            
-            <img src="conocimos.jpg" class="foto-historia" alt="El comienzo">
+            <div class="momento">
+                <img src="conocimos.jpg" class="foto-historia" alt="El comienzo" loading="lazy">
+                <h3>✨ El comienzo</h3>
+                <p>
+                    Todo comenzó cuando nuestros caminos se cruzaron por primera vez...
+                </p>
+            </div>
 
-            <h3>✨ El comienzo</h3>
+            <div class="momento">
+                <img src="prime-viaje.jpg" class="foto-historia" alt="Nuestro primer viaje" loading="lazy">
+                <h3>❤️ Nuestro primer viaje</h3>
+                <p>
+                    Compartimos aventuras, risas y momentos inolvidables.
+                </p>
+            </div>
 
-            <p>
-                Todo comenzó cuando nuestros caminos se cruzaron por primera vez...
-            </p>
+            <div class="momento">
+                <img src="propuesta.jpg" class="foto-historia" alt="La propuesta" loading="lazy">
+                <h3>💍 La propuesta</h3>
+                <p>
+                    Un momento mágico que marcó el inicio de esta nueva etapa.
+                </p>
+            </div>
 
-        </div>
-
-        <div class="momento">
-
-            
-            <img src="prime-viaje.jpg" class="foto-historia" alt="Nuestro primer viaje">
-            
-
-            <h3>❤️ Nuestro primer viaje</h3>
-
-            <p>
-                Compartimos aventuras, risas y momentos inolvidables.
-            </p>
-
-        </div>
-
-        <div class="momento">
-
-           
-            <img src="propuesta.jpg" class="foto-historia" alt="La propuesta">
-
-            <h3>💍 La propuesta</h3>
-
-            <p>
-                Un momento mágico que marcó el inicio de esta nueva etapa.
-            </p>
+            <div class="momento">
+                <img src="compromiso.jpg" class="foto-historia" alt="Nuestro compromiso" loading="lazy">
+                <h3>🥂 Nuestro compromiso</h3>
+                <p>
+                    Un paso más hacia el día más importante de nuestras vidas.
+                </p>
+            </div>
 
         </div>
 
-        <div class="momento">
+    </section>
 
-            <img src="compromiso.jpg" class="foto-historia" alt="Nuestro compromiso">
-            
+    <!-- EVENTO -->
+    <section class="evento">
 
-            <h3>🥂 Nuestro compromiso</h3>
+        <img src="cierre.jpg" class="fondo-evento" alt="" loading="lazy">
 
-            <p>
-                Un paso más hacia el día más importante de nuestras vidas.
-            </p>
+        <div class="overlay-evento"></div>
+
+        <div class="evento-contenedor">
+
+            <h2>Nuestro Gran Día</h2>
+
+            <div class="linea"></div>
+
+            <div class="dato">
+                <span>📅</span>
+                <h3>3 de Abril de 2027</h3>
+            </div>
+
+            <div class="dato">
+                <span>🕒</span>
+                <h3>18:30 hs</h3>
+            </div>
+
+            <div class="dato">
+                <span>📍</span>
+                <h3>Quinta Las Rosas</h3>
+            </div>
+
+            <a href="https://maps.app.goo.gl/X2xq9izKNVHr5qVP9"
+               class="boton-evento"
+               target="_blank"
+               rel="noopener">
+                Ver ubicación
+            </a>
+
+            <!-- ?text= deja el mensaje escrito; el invitado solo tiene que enviarlo -->
+            <a href="https://wa.me/5492616626411?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20al%20casamiento.%20Mi%20nombre%20es%3A%20"
+               class="boton-evento"
+               target="_blank"
+               rel="noopener">
+                Confirmar asistencia
+            </a>
+
+            <div class="contador">
+                <h3 id="contador-pre">Faltan</h3>
+                <div id="dias-restantes">0</div>
+                <h3 class="texto-contador" id="contador-post">
+                    días para nuestro gran día 💍
+                </h3>
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-<section class="evento">
+    <script>
+        /* ---------- MUSICA: reproducir / pausar ---------- */
+        const musica = document.getElementById("musica");
+        const btnMusica = document.getElementById("btn-musica");
 
-    <img src="cierre.jpg" class="fondo-evento" alt="Nuestro compromiso">
+        btnMusica.addEventListener("click", () => {
+            if (musica.paused) {
+                musica.play().catch(() => {});
+                btnMusica.textContent = "⏸";
+                btnMusica.setAttribute("aria-label", "Pausar música");
+            } else {
+                musica.pause();
+                btnMusica.textContent = "🎵";
+                btnMusica.setAttribute("aria-label", "Reproducir música");
+            }
+        });
 
-    <div class="overlay-evento"></div>
+        /* ---------- CONTADOR DE DIAS (por día calendario) ---------- */
+        const fechaBoda = new Date(2027, 3, 3); // mes 3 = abril
 
-    <div class="evento-contenedor">
+        function actualizarContador() {
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0);
 
-        <h2>Nuestro Gran Día</h2>
+            const dias = Math.max(0, Math.round((fechaBoda - hoy) / 86400000));
 
-        <div class="linea"></div>
+            const numero = document.getElementById("dias-restantes");
+            const pre = document.getElementById("contador-pre");
+            const post = document.getElementById("contador-post");
 
-        <div class="dato">
-            <span>📅</span>
-            <h3>3 de Abril de 2027</h3>
-        </div>
+            if (dias === 0) {
+                pre.textContent = "";
+                numero.textContent = "¡Hoy!";
+                post.textContent = "es nuestro gran día 💍";
+            } else if (dias === 1) {
+                pre.textContent = "Falta";
+                numero.textContent = "1";
+                post.textContent = "día para nuestro gran día 💍";
+            } else {
+                pre.textContent = "Faltan";
+                numero.textContent = dias;
+                post.textContent = "días para nuestro gran día 💍";
+            }
+        }
 
-        <div class="dato">
-            <span>🕒</span>
-            <h3>18:30 hs</h3>
-        </div>
+        actualizarContador();
+        setInterval(actualizarContador, 60 * 60 * 1000); // una vez por hora alcanza
+    </script>
 
-        <div class="dato">
-            <span>📍</span>
-            <h3>Quinta Las Rosas</h3>
-        </div>
-
-        <a href="https://maps.app.goo.gl/X2xq9izKNVHr5qVP9"
-   class="boton-evento"
-   target="_blank">
-   Ver ubicación
-</a>
-
-        <a href="https://wa.me/5492616626411"
-            class="boton-evento"
-            target="_blank">
-            Confirmar asistencia
-        </a>
-<div class="contador">
-
-    <h3>Faltan</h3>
-
-    <div id="dias-restantes">0</div>
-
-    <h3 class="texto-contador">
-        días para nuestro gran día 💍
-    </h3>
-
-</div>
-
-    </div>
-
-</section>
-<script>
-
-const fechaBoda = new Date("2027-04-03T18:30:00").getTime();
-
-function actualizarContador() {
-
-    const ahora = new Date().getTime();
-
-    const diferencia = fechaBoda - ahora;
-
-    const dias = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
-
-    document.getElementById("dias-restantes").innerHTML = dias;
-
-}
-
-actualizarContador();
-
-setInterval(actualizarContador, 1000);
-
-</script>
 </body>
 
 </html>
