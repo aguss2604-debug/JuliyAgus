@@ -147,14 +147,14 @@
 
         <div class="dato">
             <span>📍</span>
-            <h3>Salón Nombre del Salón</h3>
+            <h3>Quinta Las Rosas</h3>
         </div>
 
         https://maps.google.com
             Ver ubicación
         </a>
 
-        https://wa.me/54911XXXXXXXXXX
+        https://wa.me/5492616626411
             Confirmar asistencia
         </a>
 
@@ -163,8 +163,6 @@
             <h3>Faltan</h3>
 
             <div id="dias-restantes">
-                ...
-            </div>
 
             <p>días para nuestro gran día 💍</p>
 
@@ -173,6 +171,29 @@
     </div>
 
 </section>
+<script>
+
+const fechaBoda = new Date("2027-04-03T18:30:00").getTime();
+
+function actualizarContador() {
+
+    const ahora = new Date().getTime();
+
+    const diferencia = fechaBoda - ahora;
+
+    const dias = Math.floor(
+        diferencia / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("dias-restantes").innerHTML = dias;
+
+}
+
+actualizarContador();
+
+setInterval(actualizarContador, 1000);
+
+</script>
 </body>
 
 </html>
