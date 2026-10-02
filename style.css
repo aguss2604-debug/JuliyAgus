@@ -1,68 +1,80 @@
 *{
-   margin:0;
-   padding:0;
-   bo*-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
 }
 
 .hero{
-   p*sition:relative;
-   height:100vh;
-*  display:flex;
-   justify-content*center;
-   align-items:center;
+    position:relative;
+    height:100vh;
+    width:100%;
+    overflow:hidden;
 }
 
-*background{
-   position:absolute;
-*  width:100%;
-   height:100%;
-   o*ject-fit:cover;
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .overlay{
-   po*ition:absolute;
-   inset:0;
-   bac*ground:rgba(0,0,0,.35);
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
 }
 
-.marco{*   position:absolute;
-   width:80%*
-   height:85%;
-   border:1px soli* #d8c67a;
+.marco{
+    position:absolute;
+    top:10%;
+    left:15%;
+    width:70%;
+    height:80%;
+    border:1px solid #d8cb86;
+    z-index:2;
 }
 
 .fecha{
-   position:a*solute;
-   top:70px;
-   color:#efe*9a;
-   font-size:32px;
-   z-index:*;
+    position:absolute;
+    top:12%;
+    width:100%;
+    text-align:center;
+    color:#e8dd9f;
+    font-size:32px;
+    z-index:3;
 }
 
 .contenido{
-   position:relat*ve;
-   text-align:center;
-   z-ind*x:5;
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:3;
 }
 
 .contenido h1{
-   color:#e*e39a;
-   font-size:90px;
-   line*height:0.9;
+    color:#e8dd9f;
+    font-size:90px;
+    line-height:0.9;
 }
 
 .contenido p{
-   co*or:#efe39a;
-   margin-top:15px;
-  *font-size:24px;
+    color:#e8dd9f;
+    margin-top:20px;
 }
 
 .nombres{
-   po*ition*absolute;
-   bottom:80px;
-   color*#efe39a;
-   font-size:42px;
-   fon*-style:italic;
-   z-index:5;
+    position:absolute;
+    bottom:12%;
+    width:100%;
+    text-align:center;
+    color:#e8dd9f;
+    font-size:42px;
+    font-style:italic;
+    z-index:3;
 }
-```*
