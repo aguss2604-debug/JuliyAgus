@@ -119,6 +119,25 @@ function reloj() {
     for (const k in v) document.getElementById("r-" + k).textContent = p2(v[k]);
 }
 reloj(); setInterval(reloj, 1000);
+
+/* ---------- APARECER / DESAPARECER AL HACER SCROLL ---------- */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const items = document.querySelectorAll(".titulo,.linea,.reloj,.texto,.valor,.bloque,.momento,.seccion>.boton,.enlace,.cierre-texto");
+    items.forEach(el => el.classList.add("rv"));
+    const io = new IntersectionObserver(entradas => entradas.forEach((e, i) => {
+        const el = e.target;
+        if (e.isIntersecting) {
+            el.style.setProperty("--d", Math.min(i, 4) * 0.12 + "s");
+            el.classList.add("visible");
+        } else {
+            // al salir por arriba vuelve a entrar desde arriba; por abajo, desde abajo
+            el.style.setProperty("--dy", e.boundingClientRect.top < 0 ? "-30px" : "30px");
+            el.style.setProperty("--d", "0s");
+            el.classList.remove("visible");
+        }
+    }), { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    items.forEach(el => io.observe(el));
+}
 </script>
 </body>
 </html>
