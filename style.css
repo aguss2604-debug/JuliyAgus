@@ -1,326 +1,81 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
+    --crema: #fbf8f3;
+    --crema2: #f3ece1;
+    --tierra: #6b5844;
+    --tierra-suave: #9a8870;
     --dorado: #e6d78b;
     --dorado-linea: #d4b977;
-    --dorado-oscuro: #96794c;
-    --crema: #f8f4ef;
 }
 
-body {
-    font-family: 'Cinzel', serif;
-    background: #000;
-}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito Sans', sans-serif; background: var(--crema); color: var(--tierra); line-height: 1.6; }
 
-/* ========================= */
-/*          PORTADA          */
-/* ========================= */
+/* ---------- PORTADA ---------- */
+.hero { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
+.background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, .35); }
+.marco { position: absolute; inset: 8% 10%; border: 1px solid var(--dorado); z-index: 2; }
+.fecha { position: absolute; top: 12%; width: 100%; text-align: center; color: var(--dorado); font: 400 clamp(22px, 4.5vw, 32px) 'Cinzel', serif; letter-spacing: 4px; z-index: 3; }
+.contenido { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; text-align: center; z-index: 3; }
+.contenido h1 { font: 600 clamp(44px, 12vw, 90px)/.95 'Cinzel', serif; color: var(--dorado); text-shadow: 0 2px 12px rgba(0, 0, 0, .5); }
+.contenido p { margin-top: 20px; color: #fff; font-size: clamp(16px, 3.5vw, 24px); text-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+.nombres { position: absolute; bottom: 12%; width: 100%; text-align: center; color: var(--dorado); font: 400 clamp(38px, 8vw, 56px) 'Parisienne', cursive; text-shadow: 0 2px 10px rgba(0, 0, 0, .5); z-index: 3; }
 
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    height: 100svh; /* en celular no se corta con la barra del navegador */
-    overflow: hidden;
-}
+/* ---------- MUSICA ---------- */
+.btn-musica { position: fixed; right: 20px; bottom: 20px; width: 56px; height: 56px; border: 0; border-radius: 50%; background: var(--tierra); color: var(--crema); cursor: pointer; z-index: 999; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .35); transition: transform .25s; }
+.btn-musica:hover { transform: scale(1.08); }
+.btn-musica svg { width: 26px; height: 26px; }
+.btn-musica .i-pausa, .btn-musica[aria-pressed="true"] .i-play { display: none; }
+.btn-musica[aria-pressed="true"] .i-pausa { display: block; }
 
-.background {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* ---------- SECCIONES ---------- */
+.seccion { padding: clamp(64px, 10vw, 110px) 24px; text-align: center; }
+.crema2 { background: var(--crema2); }
+.titulo { font: 400 clamp(46px, 10vw, 68px)/1.1 'Parisienne', cursive; }
+.linea { width: 90px; height: 2px; background: var(--dorado-linea); margin: 18px auto 40px; }
+.texto { max-width: 460px; margin: 0 auto; font-size: clamp(17px, 4vw, 20px); }
+.texto.chico { margin-top: 16px; font-size: 16px; color: var(--tierra-suave); }
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-}
+.boton { display: inline-block; margin-top: 26px; padding: 15px 34px; border-radius: 12px; background: var(--tierra); color: var(--crema); text-decoration: none; font-weight: 700; font-size: clamp(15px, 3.8vw, 17px); box-shadow: 0 8px 20px rgba(107, 88, 68, .25); transition: transform .25s, background .25s; }
+.boton:hover { transform: translateY(-2px); background: #5a4a39; }
+.boton:focus-visible, .btn-musica:focus-visible, .enlace:focus-visible { outline: 3px solid var(--dorado-linea); outline-offset: 3px; }
+.enlace { display: block; margin-top: 22px; font-size: 15px; color: var(--tierra); }
 
-.marco {
-    position: absolute;
-    top: 8%;
-    left: 10%;
-    width: 80%;
-    height: 84%;
-    border: 1px solid var(--dorado);
-    z-index: 2;
-}
+/* ---------- RELOJ ---------- */
+.reloj { display: flex; justify-content: center; gap: clamp(16px, 6vw, 44px); }
+.reloj strong { display: block; font: 600 clamp(36px, 11vw, 60px)/1 'Cinzel', serif; font-variant-numeric: tabular-nums; }
+.reloj span { display: block; margin-top: 8px; font-size: 14px; color: var(--tierra-suave); }
 
-.fecha {
-    position: absolute;
-    top: 12%;
-    width: 100%;
-    text-align: center;
-    color: var(--dorado);
-    font-size: clamp(22px, 4.5vw, 32px);
-    letter-spacing: 4px;
-    z-index: 3;
-}
+/* ---------- DETALLES ---------- */
+.bloque + .bloque { margin-top: 70px; }
+.bloque svg { width: 64px; height: 64px; color: #a98f5a; }
+.bloque h3 { margin-top: 10px; font: 400 clamp(38px, 9vw, 52px) 'Parisienne', cursive; }
+.bloque p { max-width: 460px; margin: 10px auto 0; font-size: clamp(17px, 4vw, 20px); }
 
-.contenido {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-    z-index: 3;
-}
+/* ---------- CONFIRMAR ---------- */
+.valor { display: inline-flex; flex-direction: column; margin-top: 26px; padding: 16px 32px; border: 1px solid var(--dorado-linea); border-radius: 14px; background: rgba(255, 255, 255, .6); }
+.valor strong { font: 600 clamp(30px, 8vw, 40px) 'Cinzel', serif; }
+.valor span { font-size: 14px; color: var(--tierra-suave); }
 
-.contenido h1 {
-    color: var(--dorado);
-    font-size: clamp(44px, 12vw, 90px);
-    line-height: 0.95;
-    font-weight: 600;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, .5);
-}
+/* ---------- HISTORIA ---------- */
+.momento { margin-bottom: clamp(56px, 9vw, 90px); }
+.momento:last-child { margin-bottom: 0; }
+.momento img { display: block; width: 100%; max-width: 440px; aspect-ratio: 1 / 1; object-fit: cover; margin: 0 auto 22px; border-radius: 18px; box-shadow: 0 14px 34px rgba(107, 88, 68, .22); }
+.momento h3 { font: 400 clamp(34px, 8vw, 44px) 'Parisienne', cursive; }
+.momento p { max-width: 480px; margin: 8px auto 0; font-size: clamp(17px, 4vw, 19px); }
 
-.contenido p {
-    color: white;
-    margin-top: 20px;
-    font-size: clamp(16px, 3.5vw, 24px);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, .6);
-}
-
-.nombres {
-    position: absolute;
-    bottom: 12%;
-    width: 100%;
-    text-align: center;
-    color: var(--dorado);
-    font-size: clamp(38px, 8vw, 56px);
-    font-family: 'Parisienne', cursive;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
-    z-index: 3;
-}
-
-/* ========================= */
-/*       BOTON MUSICA        */
-/* ========================= */
-
-.btn-musica {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: none;
-    background: var(--dorado);
-    color: #000;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
-    transition: transform .3s;
-}
-
-.btn-musica:hover {
-    transform: scale(1.08);
-}
-
-/* ========================= */
-/*         HISTORIA          */
-/* ========================= */
-
-.historia {
-    min-height: 100vh;
-    background: var(--crema);
-    padding: clamp(70px, 12vw, 120px) 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.historia-contenedor {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-}
-
-.historia h2 {
-    font-family: 'Parisienne', cursive;
-    font-size: clamp(52px, 11vw, 80px);
-    font-weight: 400;
-    color: var(--dorado-oscuro);
-    margin-bottom: 20px;
-}
-
-.linea {
-    width: 150px;
-    height: 2px;
-    background: var(--dorado-linea);
-    margin: 0 auto 60px auto;
-}
-
-.foto-historia {
-    width: min(350px, 100%);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 4px solid var(--dorado-linea);
-    margin-bottom: 25px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .20);
-    transition: transform .3s ease;
-}
-
-.foto-historia:hover {
-    transform: scale(1.03);
-}
-
-.momento {
-    margin-bottom: clamp(60px, 10vw, 100px);
-}
-
-.momento h3 {
-    font-size: clamp(22px, 5vw, 32px);
-    color: var(--dorado-oscuro);
-    margin-bottom: 15px;
-}
-
-.momento p {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: clamp(17px, 4vw, 22px);
-    line-height: 1.8;
-    color: #4a4a4a;
-}
-
-/* ========================= */
-/*      SECCION EVENTO       */
-/* ========================= */
-
-.evento {
-    position: relative;
-    min-height: 100vh;
-    min-height: 100svh;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.fondo-evento {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.overlay-evento {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, .55);
-}
-
-.evento-contenedor {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    max-width: 900px;
-    width: 100%;
-    padding: 60px 24px;
-}
-
-.evento h2 {
-    font-family: 'Parisienne', cursive;
-    font-size: clamp(52px, 12vw, 90px);
-    font-weight: 400;
-    color: var(--dorado);
-    margin-bottom: 20px;
-}
-
-.dato {
-    margin: 30px 0;
-}
-
-.dato span {
-    display: block;
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.dato h3 {
-    color: white;
-    font-size: clamp(22px, 5vw, 32px);
-    font-weight: 400;
-}
-
-.boton-evento {
-    display: inline-block;
-    margin: 15px 10px;
-    padding: 15px 35px;
-    background: var(--dorado);
-    color: #000;
-    text-decoration: none;
-    border-radius: 40px;
-    font-size: clamp(16px, 4vw, 20px);
-    font-weight: bold;
-    transition: transform .3s;
-}
-
-.boton-evento:hover {
-    transform: scale(1.05);
-}
-
-/* Foco visible para quien navega con teclado */
-.boton-evento:focus-visible,
-.btn-musica:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 3px;
-}
-
-.contador {
-    margin-top: 60px;
-}
-
-.contador h3 {
-    color: var(--dorado);
-    margin-bottom: 15px;
-}
-
-#dias-restantes {
-    font-size: clamp(60px, 16vw, 80px);
-    font-weight: bold;
-    color: var(--dorado);
-}
-
-.texto-contador {
-    color: white;
-    margin-top: 15px;
-    font-size: clamp(18px, 4.5vw, 28px);
-    font-weight: 400;
-}
-
-/* ========================= */
-/*     CELULARES CHICOS      */
-/* ========================= */
+/* ---------- CIERRE ---------- */
+.cierre { position: relative; min-height: 70vh; min-height: 70svh; display: grid; place-items: center; overflow: hidden; text-align: center; color: #fff; }
+.cierre img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.velo { position: absolute; inset: 0; background: rgba(0, 0, 0, .5); }
+.cierre-texto { position: relative; padding: 24px; }
+.cierre-texto h2 { font: 400 clamp(52px, 12vw, 84px)/1.1 'Parisienne', cursive; color: var(--dorado); }
+.cierre-texto span { font: 400 18px 'Cinzel', serif; letter-spacing: 4px; }
 
 @media (max-width: 480px) {
-    .marco {
-        top: 5%;
-        left: 6%;
-        width: 88%;
-        height: 90%;
-    }
-
-    .boton-evento {
-        display: block;
-        max-width: 280px;
-        margin: 15px auto;
-    }
+    .marco { inset: 5% 6%; }
+    .boton { display: block; max-width: 300px; margin-inline: auto; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-    }
-}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
