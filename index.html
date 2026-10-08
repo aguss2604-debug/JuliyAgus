@@ -1,220 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Juli & Agus · 3 de abril de 2027</title>
     <meta name="description" content="¡Nos casamos! Te esperamos el 3 de abril de 2027 a las 18:30 hs en Quinta Las Rosas.">
-
-    <!-- Vista previa al compartir por WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Juli & Agus · ¡Nos casamos!">
     <meta property="og:description" content="Te esperamos el 3 de abril de 2027 a las 18:30 hs.">
     <meta property="og:image" content="https://aguss2604-debug.github.io/JuliyAgus/Portada.jpg">
-
-    <!-- Fuentes (corregido: el link anterior estaba cortado y mal escrito) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito+Sans:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- AUDIO (necesita el archivo musica.mp3 subido al repo) -->
-    <audio id="musica" src="musica.mp3" loop preload="none"></audio>
+<!-- MUSICA: subí tu archivo al repo con el nombre musica.mp3 (o cambiá el nombre acá) -->
+<audio id="musica" src="musica.mp3" loop preload="none"></audio>
+<button class="btn-musica" id="btn-musica" type="button" aria-pressed="false" aria-label="Música">
+    <svg class="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+    <svg class="i-pausa" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+</button>
 
-    <!-- BOTON MUSICA -->
-    <button class="btn-musica" id="btn-musica" type="button" aria-label="Reproducir música">
-        🎵
-    </button>
+<!-- PORTADA -->
+<section class="hero">
+    <img src="Portada.jpg" class="background" alt="Juli y Agus">
+    <div class="overlay"></div>
+    <div class="marco"></div>
+    <div class="fecha">03.04.27</div>
+    <div class="contenido">
+        <h1>¡NOS<br>CASAMOS!</h1>
+        <p>Quinta Las Rosas</p>
+    </div>
+    <div class="nombres">Juli y Agus</div>
+</section>
 
-    <!-- PORTADA -->
-    <section class="hero">
+<!-- RELOJ -->
+<section class="seccion">
+    <h2 class="titulo">Faltan</h2>
+    <div class="linea"></div>
+    <div class="reloj" id="reloj">
+        <div><strong id="r-dias">00</strong><span>Días</span></div>
+        <div><strong id="r-hs">00</strong><span>Hs</span></div>
+        <div><strong id="r-min">00</strong><span>Min</span></div>
+        <div><strong id="r-seg">00</strong><span>Seg</span></div>
+    </div>
+    <a class="boton" target="_blank" rel="noopener"
+       href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Casamiento%20de%20Juli%20y%20Agus&amp;dates=20270403T183000/20270404T040000&amp;ctz=America/Argentina/Buenos_Aires&amp;location=Quinta%20Las%20Rosas">Agendar fecha</a>
+</section>
 
-        <img src="Portada.jpg" class="background" alt="Portada">
+<!-- DETALLES -->
+<section class="seccion crema2">
+    <h2 class="titulo">Nuestro gran día</h2>
+    <div class="linea"></div>
 
-        <div class="overlay"></div>
+    <div class="bloque">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="14"/><circle cx="40" cy="38" r="14"/><path d="M20 16l4-5 4 5-4 6z"/></svg>
+        <h3>Ceremonia</h3>
+        <p>Sábado 3 de abril, 18:30 hs.<br>Te esperamos para compartir este momento.</p>
+        <!-- COMPLETAR: si la ceremonia es en otro lugar, cambiá el texto y el link -->
+        <a class="boton" href="https://maps.app.goo.gl/X2xq9izKNVHr5qVP9" target="_blank" rel="noopener">Ver mapa de la ceremonia</a>
+    </div>
 
-        <div class="marco"></div>
+    <div class="bloque">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><g transform="rotate(14 22 41)"><path d="M10 12h24c0 9-5 15-12 15S10 21 10 12z"/><path d="M22 27v14M16 41h12"/></g><g transform="rotate(-14 42 41)"><path d="M30 12h24c0 9-5 15-12 15S30 21 30 12z"/><path d="M42 27v14M36 41h12"/></g></svg>
+        <h3>Fiesta</h3>
+        <p>Después de la ceremonia seguimos festejando en Quinta Las Rosas.</p>
+        <!-- COMPLETAR: link del mapa de la fiesta si es distinto -->
+        <a class="boton" href="https://maps.app.goo.gl/X2xq9izKNVHr5qVP9" target="_blank" rel="noopener">Ver mapa de la fiesta</a>
+    </div>
+</section>
 
-        <div class="fecha">
-            03.04.27
-        </div>
+<!-- CONFIRMAR -->
+<section class="seccion">
+    <h2 class="titulo">Confirmá tu asistencia</h2>
+    <div class="linea"></div>
+    <p class="texto">Nos haría muy felices contar con vos. Para anotarte, completá el formulario.</p>
+    <!-- COMPLETAR: valor y fecha límite -->
+    <div class="valor"><span>Valor de la tarjeta</span><strong>$00.000</strong><span>por persona</span></div>
+    <p class="texto chico">Confirmar antes del 00 de mes</p>
+    <!-- COMPLETAR: pegá el link de tu Google Forms -->
+    <a class="boton" href="https://forms.gle/COMPLETAR" target="_blank" rel="noopener">Anotarme</a>
+    <a class="enlace" href="https://wa.me/5492616626411?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20el%20casamiento." target="_blank" rel="noopener">¿Dudas? Escribinos por WhatsApp</a>
+</section>
 
-        <div class="contenido">
+<!-- HISTORIA -->
+<section class="seccion crema2">
+    <h2 class="titulo">Nuestra historia</h2>
+    <div class="linea"></div>
+    <div class="momento"><img src="conocimos.jpg" alt="El comienzo" loading="lazy"><h3>El comienzo</h3><p>Todo comenzó cuando nuestros caminos se cruzaron por primera vez...</p></div>
+    <div class="momento"><img src="prime-viaje.jpg" alt="Nuestro primer viaje" loading="lazy"><h3>Nuestro primer viaje</h3><p>Compartimos aventuras, risas y momentos inolvidables.</p></div>
+    <div class="momento"><img src="propuesta.jpg" alt="La propuesta" loading="lazy"><h3>La propuesta</h3><p>Un momento mágico que marcó el inicio de esta nueva etapa.</p></div>
+    <div class="momento"><img src="compromiso.jpg" alt="Nuestro compromiso" loading="lazy"><h3>Nuestro compromiso</h3><p>Un paso más hacia el día más importante de nuestras vidas.</p></div>
+</section>
 
-            <h1>
-                ¡NOS<br>
-                CASAMOS!
-            </h1>
+<!-- CIERRE -->
+<section class="cierre">
+    <img src="cierre.jpg" alt="" loading="lazy">
+    <div class="velo"></div>
+    <div class="cierre-texto"><p>Te esperamos</p><h2>Juli y Agus</h2><span>03.04.27</span></div>
+</section>
 
-            <!-- Reemplazá por el texto que prefieras -->
-            <p>
-                Quinta Las Rosas
-            </p>
+<script>
+const musica = document.getElementById("musica"), btn = document.getElementById("btn-musica");
+btn.addEventListener("click", () => {
+    const suena = musica.paused;
+    suena ? musica.play().catch(() => {}) : musica.pause();
+    btn.setAttribute("aria-pressed", suena);
+    btn.setAttribute("aria-label", suena ? "Pausar música" : "Reproducir música");
+});
 
-        </div>
-
-        <div class="nombres">
-            Juli y Agus
-        </div>
-
-    </section>
-
-    <!-- HISTORIA -->
-    <section class="historia">
-
-        <div class="historia-contenedor">
-
-            <h2>Nuestra Historia</h2>
-
-            <div class="linea"></div>
-
-            <div class="momento">
-                <img src="conocimos.jpg" class="foto-historia" alt="El comienzo" loading="lazy">
-                <h3>✨ El comienzo</h3>
-                <p>
-                    Todo comenzó cuando nuestros caminos se cruzaron por primera vez...
-                </p>
-            </div>
-
-            <div class="momento">
-                <img src="prime-viaje.jpg" class="foto-historia" alt="Nuestro primer viaje" loading="lazy">
-                <h3>❤️ Nuestro primer viaje</h3>
-                <p>
-                    Compartimos aventuras, risas y momentos inolvidables.
-                </p>
-            </div>
-
-            <div class="momento">
-                <img src="propuesta.jpg" class="foto-historia" alt="La propuesta" loading="lazy">
-                <h3>💍 La propuesta</h3>
-                <p>
-                    Un momento mágico que marcó el inicio de esta nueva etapa.
-                </p>
-            </div>
-
-            <div class="momento">
-                <img src="compromiso.jpg" class="foto-historia" alt="Nuestro compromiso" loading="lazy">
-                <h3>🥂 Nuestro compromiso</h3>
-                <p>
-                    Un paso más hacia el día más importante de nuestras vidas.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- EVENTO -->
-    <section class="evento">
-
-        <img src="cierre.jpg" class="fondo-evento" alt="" loading="lazy">
-
-        <div class="overlay-evento"></div>
-
-        <div class="evento-contenedor">
-
-            <h2>Nuestro Gran Día</h2>
-
-            <div class="linea"></div>
-
-            <div class="dato">
-                <span>📅</span>
-                <h3>3 de Abril de 2027</h3>
-            </div>
-
-            <div class="dato">
-                <span>🕒</span>
-                <h3>18:30 hs</h3>
-            </div>
-
-            <div class="dato">
-                <span>📍</span>
-                <h3>Quinta Las Rosas</h3>
-            </div>
-
-            <a href="https://maps.app.goo.gl/X2xq9izKNVHr5qVP9"
-               class="boton-evento"
-               target="_blank"
-               rel="noopener">
-                Ver ubicación
-            </a>
-
-            <!-- ?text= deja el mensaje escrito; el invitado solo tiene que enviarlo -->
-            <a href="https://wa.me/5492616626411?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20al%20casamiento.%20Mi%20nombre%20es%3A%20"
-               class="boton-evento"
-               target="_blank"
-               rel="noopener">
-                Confirmar asistencia
-            </a>
-
-            <div class="contador">
-                <h3 id="contador-pre">Faltan</h3>
-                <div id="dias-restantes">0</div>
-                <h3 class="texto-contador" id="contador-post">
-                    días para nuestro gran día 💍
-                </h3>
-            </div>
-
-        </div>
-
-    </section>
-
-    <script>
-        /* ---------- MUSICA: reproducir / pausar ---------- */
-        const musica = document.getElementById("musica");
-        const btnMusica = document.getElementById("btn-musica");
-
-        btnMusica.addEventListener("click", () => {
-            if (musica.paused) {
-                musica.play().catch(() => {});
-                btnMusica.textContent = "⏸";
-                btnMusica.setAttribute("aria-label", "Pausar música");
-            } else {
-                musica.pause();
-                btnMusica.textContent = "🎵";
-                btnMusica.setAttribute("aria-label", "Reproducir música");
-            }
-        });
-
-        /* ---------- CONTADOR DE DIAS (por día calendario) ---------- */
-        const fechaBoda = new Date(2027, 3, 3); // mes 3 = abril
-
-        function actualizarContador() {
-            const hoy = new Date();
-            hoy.setHours(0, 0, 0, 0);
-
-            const dias = Math.max(0, Math.round((fechaBoda - hoy) / 86400000));
-
-            const numero = document.getElementById("dias-restantes");
-            const pre = document.getElementById("contador-pre");
-            const post = document.getElementById("contador-post");
-
-            if (dias === 0) {
-                pre.textContent = "";
-                numero.textContent = "¡Hoy!";
-                post.textContent = "es nuestro gran día 💍";
-            } else if (dias === 1) {
-                pre.textContent = "Falta";
-                numero.textContent = "1";
-                post.textContent = "día para nuestro gran día 💍";
-            } else {
-                pre.textContent = "Faltan";
-                numero.textContent = dias;
-                post.textContent = "días para nuestro gran día 💍";
-            }
-        }
-
-        actualizarContador();
-        setInterval(actualizarContador, 60 * 60 * 1000); // una vez por hora alcanza
-    </script>
-
+const boda = new Date("2027-04-03T18:30:00-03:00");
+const p2 = n => String(n).padStart(2, "0");
+function reloj() {
+    let d = Math.max(0, boda - new Date());
+    const v = { dias: Math.floor(d / 864e5), hs: Math.floor(d % 864e5 / 36e5), min: Math.floor(d % 36e5 / 6e4), seg: Math.floor(d % 6e4 / 1e3) };
+    for (const k in v) document.getElementById("r-" + k).textContent = p2(v[k]);
+}
+reloj(); setInterval(reloj, 1000);
+</script>
 </body>
-
 </html>
