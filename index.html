@@ -25,12 +25,16 @@
 </button>
 
 
-<!-- PANTALLA DE ENTRADA: el toque en "Abrir invitación" es lo que permite que arranque la música -->
+<!-- PANTALLA DE ENTRADA: el toque en el sobre abre la invitación y arranca la música -->
 <div class="entrada" id="entrada">
     <p>Te invitamos a nuestro casamiento</p>
-    <h1>Juli y Agus</h1>
-    <span>03.04.27</span>
-    <button type="button" id="abrir" class="boton">Abrir invitación</button>
+    <button type="button" id="abrir" class="sobre" aria-label="Abrir invitación">
+        <span class="tarjeta"><em>Juli y Agus</em><small>03.04.27</small></span>
+        <span class="frente"></span>
+        <span class="solapa"></span>
+        <span class="sello">J&amp;A</span>
+    </button>
+    <span class="tip">Tocá el sobre para abrir</span>
 </div>
 
 <!-- PORTADA -->
@@ -128,10 +132,11 @@ btn.addEventListener("click", async () => {
 });
 document.getElementById("abrir").addEventListener("click", async () => {
     const play = musica.play(); // primero, dentro del toque del usuario
-    document.body.classList.remove("bloqueado");
-    document.getElementById("entrada").classList.add("oculta");
+    const entrada = document.getElementById("entrada");
+    entrada.classList.add("abierto");
+    setTimeout(() => { document.body.classList.remove("bloqueado"); entrada.classList.add("oculta"); }, 1900);
     try { await play; estado(true); } catch (err) { estado(false); }
-});
+}, { once: true });
 musica.addEventListener("error", () => estado(false));
 musica.addEventListener("ended", () => estado(false));
 
