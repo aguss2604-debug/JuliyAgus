@@ -14,14 +14,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito+Sans:wght@400;700&family=Parisienne&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bloqueado">
+<noscript><style>.entrada{display:none}.bloqueado{overflow:auto}</style></noscript>
 
-<!-- MUSICA: subí tu archivo al repo con el nombre musica.mp3 (o cambiá el nombre acá) -->
+<!-- MUSICA: el archivo en el repo se llama musica.mp3 (GitHub distingue mayúsculas: tiene que coincidir exacto) -->
 <audio id="musica" src="musica.mp3" loop preload="none"></audio>
 <button class="btn-musica" id="btn-musica" type="button" aria-pressed="false" aria-label="Música">
     <svg class="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
     <svg class="i-pausa" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
 </button>
+
+
+<!-- PANTALLA DE ENTRADA: el toque en "Abrir invitación" es lo que permite que arranque la música -->
+<div class="entrada" id="entrada">
+    <p>Te invitamos a nuestro casamiento</p>
+    <h1>Juli y Agus</h1>
+    <span>03.04.27</span>
+    <button type="button" id="abrir" class="boton">Abrir invitación</button>
+</div>
 
 <!-- PORTADA -->
 <section class="hero">
@@ -31,7 +41,7 @@
     <div class="fecha">03.04.27</div>
     <div class="contenido">
         <h1>¡NOS<br>CASAMOS!</h1>
-        
+        <p>Quinta Las Rosas</p>
     </div>
     <div class="nombres">Juli y Agus</div>
 </section>
@@ -78,7 +88,7 @@
     <div class="linea"></div>
     <p class="texto">Nos haría muy felices contar con vos. Para anotarte, completá el formulario.</p>
     <!-- COMPLETAR: valor y fecha límite -->
-    <div class="valor"><span>Valor de la tarjeta</span><strong>USD 60</strong><span>por persona</span></div>
+    <div class="valor"><span>Valor de la tarjeta</span><strong>$00.000</strong><span>por persona</span></div>
     <p class="texto chico">Confirmar antes del 00 de mes</p>
     <!-- COMPLETAR: pegá el link de tu Google Forms -->
     <a class="boton" href="https://forms.gle/COMPLETAR" target="_blank" rel="noopener">Anotarme</a>
@@ -104,12 +114,26 @@
 
 <script>
 const musica = document.getElementById("musica"), btn = document.getElementById("btn-musica");
-btn.addEventListener("click", () => {
-    const suena = musica.paused;
-    suena ? musica.play().catch(() => {}) : musica.pause();
+function estado(suena) {
     btn.setAttribute("aria-pressed", suena);
     btn.setAttribute("aria-label", suena ? "Pausar música" : "Reproducir música");
+}
+btn.addEventListener("click", async () => {
+    if (musica.paused) {
+        try { await musica.play(); estado(true); }
+        catch (err) { estado(false); console.warn("No se pudo reproducir la música:", err); }
+    } else {
+        musica.pause(); estado(false);
+    }
 });
+document.getElementById("abrir").addEventListener("click", async () => {
+    const play = musica.play(); // primero, dentro del toque del usuario
+    document.body.classList.remove("bloqueado");
+    document.getElementById("entrada").classList.add("oculta");
+    try { await play; estado(true); } catch (err) { estado(false); }
+});
+musica.addEventListener("error", () => estado(false));
+musica.addEventListener("ended", () => estado(false));
 
 const boda = new Date("2027-04-03T18:30:00-03:00");
 const p2 = n => String(n).padStart(2, "0");
