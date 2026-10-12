@@ -72,6 +72,17 @@ body { font-family: 'Nunito Sans', sans-serif; background: var(--crema); color: 
 .bloque h3 { margin-top: 10px; font: 400 clamp(38px, 9vw, 52px) 'Parisienne', cursive; }
 .bloque p { max-width: 460px; margin: 10px auto 0; font-size: clamp(17px, 4vw, 20px); }
 
+/* ---------- DRESS CODE ---------- */
+.bloque .prendas { display: flex; justify-content: center; gap: 28px; }
+.bloque .prendas svg { width: 90px; height: 144px; }
+.colores { display: flex; justify-content: center; gap: 24px; margin-top: 24px; list-style: none; font-size: 15px; }
+.colores li { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.colores i { position: relative; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(107, 88, 68, .35); }
+.colores i::after { content: ""; position: absolute; left: 50%; top: -5px; width: 1.5px; height: calc(100% + 10px); background: var(--tierra); transform: rotate(45deg); }
+.c-verde { background: #3f7d4e; }
+.c-oliva { background: #6b6b2f; }
+.c-blanco { background: #fff; }
+
 /* ---------- CONFIRMAR ---------- */
 .valor { display: inline-flex; flex-direction: column; margin-top: 26px; padding: 16px 32px; border: 1px solid var(--dorado-linea); border-radius: 14px; background: rgba(255, 255, 255, .6); }
 .valor strong { font: 600 clamp(30px, 8vw, 40px) 'Cinzel', serif; }
