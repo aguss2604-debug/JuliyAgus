@@ -24,9 +24,10 @@
         .colores i::after { content: ""; position: absolute; left: 50%; top: -5px; width: 1.5px; height: calc(100% + 10px); background: var(--tierra); transform: rotate(45deg); }
         .colores.sugeridos i::after { display: none; }
         .colores + p { margin-top: 36px; }
-        /* GALERIA */
-        .galeria { max-width: 720px; margin: 0 auto; columns: 2; column-gap: 14px; }
-        .galeria img { display: block; width: 100%; height: auto; margin-bottom: 14px; break-inside: avoid; border-radius: 14px; box-shadow: 0 10px 26px rgba(107, 88, 68, .2); }
+        /* GALERIA: una columna grande en el celular, dos en pantallas anchas */
+        .galeria { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 520px; margin: 0 auto; }
+        .galeria img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 10px 26px rgba(107, 88, 68, .2); }
+        @media (min-width: 760px) { .galeria { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 860px; align-items: center; } }
     </style>
 </head>
 <body class="bloqueado">
@@ -107,12 +108,16 @@
         <h3>Dress code</h3>
         <p>Formal. Te pedimos evitar estos colores:</p>
         <ul class="colores">
+            <li><i style="--c:#2e7d4f"></i>Verde</li>
+            <li><i style="--c:#708238"></i>Verde oliva</li>
             <li><i style="--c:#ffffff"></i>Blanco</li>
+        </ul>
+        <p>Nos encantará verte en tonos claros y beige:</p>
+        <ul class="colores sugeridos">
             <li><i style="--c:#f4ecdc"></i>Crema</li>
             <li><i style="--c:#ecd9b0"></i>Champagne</li>
             <li><i style="--c:#e2cfae"></i>Arena</li>
-            <li><i style="--c:#2e7d4f"></i>Verde</li>
-            <li><i style="--c:#708238"></i>Verde oliva</li>
+            <li><i style="--c:#d4bc98"></i>Beige</li>
         </ul>
     </div>
 </section>
