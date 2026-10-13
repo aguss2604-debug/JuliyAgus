@@ -24,6 +24,9 @@
         .colores i::after { content: ""; position: absolute; left: 50%; top: -5px; width: 1.5px; height: calc(100% + 10px); background: var(--tierra); transform: rotate(45deg); }
         .colores.sugeridos i::after { display: none; }
         .colores + p { margin-top: 36px; }
+        /* GALERIA */
+        .galeria { max-width: 720px; margin: 0 auto; columns: 2; column-gap: 14px; }
+        .galeria img { display: block; width: 100%; height: auto; margin-bottom: 14px; break-inside: avoid; border-radius: 14px; box-shadow: 0 10px 26px rgba(107, 88, 68, .2); }
     </style>
 </head>
 <body class="bloqueado">
@@ -107,6 +110,9 @@
             <li><i style="--c:#2e7d4f"></i>Verde</li>
             <li><i style="--c:#708238"></i>Verde oliva</li>
             <li><i style="--c:#ffffff"></i>Blanco</li>
+        </ul>
+        <p>Nos encantará verte en tonos claros y beige:</p>
+        <ul class="colores sugeridos">
             <li><i style="--c:#f4ecdc"></i>Crema</li>
             <li><i style="--c:#ecd9b0"></i>Champagne</li>
             <li><i style="--c:#e2cfae"></i>Arena</li>
@@ -119,7 +125,7 @@
 <section class="seccion">
     <h2 class="titulo">Confirmá tu asistencia</h2>
     <div class="linea"></div>
-    <p class="texto">Como nuestro mejor regalo es tu compañia, deicidimos hacer el evento con modalidad tarjeta paga. Asi, en lugar de obsequios tradicionales, tengamos una noche inolvidable juntos. Para anotarte, completá el formulario.</p>
+    <p class="texto">Como nuestro mejor regalo es tu compañía, decidimos hacer el evento con modalidad tarjeta paga. Así, en lugar de obsequios tradicionales, tendremos una noche inolvidable juntos. Para anotarte, completá el formulario.</p>
     <!-- COMPLETAR: valor y fecha límite -->
     <div class="valor"><span>Valor de la tarjeta</span><strong>65 USD</strong><span>por persona</span></div>
     <p class="texto chico">Confirmar antes del 00 de mes</p>
@@ -128,14 +134,16 @@
     <a class="enlace" href="https://wa.me/5492616626411?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20el%20casamiento." target="_blank" rel="noopener">¿Dudas? Escribinos por WhatsApp</a>
 </section>
 
-<!-- HISTORIA -->
+<!-- GALERIA: usa las fotos que ya están en el repo (podés agregar más líneas <img>) -->
 <section class="seccion crema2">
-    <h2 class="titulo">Nuestra historia</h2>
+    <h2 class="titulo">Nuestra sesión</h2>
     <div class="linea"></div>
-    <div class="momento"><img src="conocimos.jpg" alt="El comienzo" loading="lazy"><h3>El comienzo</h3><p>Todo comenzó cuando nuestros caminos se cruzaron por primera vez...</p></div>
-    <div class="momento"><img src="prime-viaje.jpg" alt="Nuestro primer viaje" loading="lazy"><h3>Nuestro primer viaje</h3><p>Compartimos aventuras, risas y momentos inolvidables.</p></div>
-    <div class="momento"><img src="propuesta.jpg" alt="La propuesta" loading="lazy"><h3>La propuesta</h3><p>Un momento mágico que marcó el inicio de esta nueva etapa.</p></div>
-    <div class="momento"><img src="compromiso.jpg" alt="Nuestro compromiso" loading="lazy"><h3>Nuestro compromiso</h3><p>Un paso más hacia el día más importante de nuestras vidas.</p></div>
+    <div class="galeria">
+        <img src="conocimos.jpg" alt="Juli y Agus, el comienzo" loading="lazy">
+        <img src="prime-viaje.jpg" alt="Juli y Agus, nuestro primer viaje" loading="lazy">
+        <img src="propuesta.jpg" alt="Juli y Agus, la propuesta" loading="lazy">
+        <img src="compromiso.jpg" alt="Juli y Agus, nuestro compromiso" loading="lazy">
+    </div>
 </section>
 
 <!-- CIERRE -->
@@ -180,7 +188,7 @@ reloj(); setInterval(reloj, 1000);
 
 /* ---------- APARECER / DESAPARECER AL HACER SCROLL ---------- */
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const items = document.querySelectorAll(".titulo,.linea,.reloj,.texto,.valor,.bloque,.momento,.seccion>.boton,.enlace,.cierre-texto");
+    const items = document.querySelectorAll(".titulo,.linea,.reloj,.texto,.valor,.bloque,.momento,.seccion>.boton,.enlace,.cierre-texto,.galeria img");
     items.forEach(el => el.classList.add("rv"));
     const io = new IntersectionObserver(entradas => entradas.forEach((e, i) => {
         const el = e.target;
