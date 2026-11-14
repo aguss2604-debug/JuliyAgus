@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Juli y Agus//Invitacion de boda//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-juli-y-agus-20270403@aguss2604-debug.github.io
+DTSTAMP:20261114T120000Z
+DTSTART:20270403T213000Z
+DTEND:20270404T070000Z
+SUMMARY:Casamiento de Juli y Agus
+LOCATION:Basílica San Vicente Ferrer
+DESCRIPTION:¡Nos casamos! Ceremonia a las 18:30 hs en la Bas
+ ílica San Vicente Ferrer y fiesta en Quinta Las Rosas. ¡Te 
+ esperamos!
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Falta una semana para el casamiento de Juli y Ag
+ us
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Mañana es el casamiento de Juli y Agus
+END:VALARM
+END:VEVENT
+END:VCALENDAR
