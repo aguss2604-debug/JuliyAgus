@@ -39,6 +39,12 @@
         .b-sub { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; opacity: .85; }
         .boton.boton-outline { background: transparent; color: var(--tierra); border: 1.5px solid var(--tierra); box-shadow: none; }
         .boton.boton-outline:hover { background: rgba(107, 88, 68, .08); }
+        /* REGALOS */
+        .alias { display: inline-flex; flex-direction: column; margin-top: 26px; padding: 16px 28px; max-width: 100%; border: 1px solid var(--dorado-linea); border-radius: 14px; background: rgba(255, 255, 255, .6); }
+        .alias strong { font: 600 clamp(20px, 6vw, 28px) 'Cinzel', serif; letter-spacing: .04em; overflow-wrap: anywhere; }
+        .alias span { font-size: 14px; color: var(--tierra-suave); }
+        .enlace + .linea { margin-top: 60px; }
+        #copiar { display: block; margin: 18px auto 0; font-family: inherit; cursor: pointer; }
     </style>
 </head>
 <body class="bloqueado">
@@ -159,6 +165,15 @@
     <!-- COMPLETAR: pegá el link de tu Google Forms -->
     <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLScO3Z0U0SGU-ZHV2S_u56hdp0vkPE2p_7C-s5oyExc7ZCbpbw/viewform?usp=dialog" target="_blank" rel="noopener">Anotarme</a>
     <a class="enlace" href="https://wa.me/5492616626411?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20el%20casamiento." target="_blank" rel="noopener">¿Dudas? Escribinos por WhatsApp</a>
+    <div class="linea"></div>
+    <div class="bloque">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="24" width="44" height="10" rx="1.5"/><path d="M13 34v22h38V34M32 24v32"/><path d="M32 24C26 24 18 21 19 15c1-5 8-5 13 9M32 24C38 24 46 21 45 15c-1-5-8-5-13 9"/></svg>
+        <h3>Regalos</h3>
+        <p>Tu compañía es nuestro mejor regalo. Si querés tener un detalle con nosotros, te dejamos nuestro alias.</p>
+        <!-- COMPLETAR: poné tu alias en lugar de ALIAS.COMPLETAR (y el titular si querés) -->
+        <div class="alias"><span>Alias</span><strong id="alias">ALIAS.COMPLETAR</strong></div>
+        <button type="button" class="boton boton-outline" id="copiar">Copiar alias</button>
+    </div>
 </section>
 
 <!-- GALERIA: usa las fotos que ya están en el repo (podés agregar más líneas <img>) -->
@@ -206,6 +221,13 @@ document.getElementById("abrir").addEventListener("click", async () => {
 }, { once: true });
 musica.addEventListener("error", () => estado(false));
 musica.addEventListener("ended", () => estado(false));
+
+document.getElementById("copiar").addEventListener("click", async e => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText(document.getElementById("alias").textContent.trim()); b.textContent = "¡Alias copiado!"; }
+    catch (err) { b.textContent = "Copialo manualmente"; }
+    setTimeout(() => { b.textContent = "Copiar alias"; }, 2200);
+});
 
 const boda = new Date("2027-04-03T18:30:00-03:00");
 const p2 = n => String(n).padStart(2, "0");
